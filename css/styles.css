@@ -1,0 +1,134 @@
+:root {
+  --color-background: #fcf6f0;
+  --color-primary: #721513;
+  --color-secondary: #7a7c63;
+  --color-text: #222121;
+}
+
+* { box-sizing: border-box; }
+
+html { overflow-x: clip; }
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: "rollerscript-smooth", "Homemade Apple", cursive;
+  overflow-x: clip;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+h2, p { margin: 0; font-weight: 400; }
+
+.invitation { width: min(100%, 1179px); margin-inline: auto; }
+
+.hero { padding-top: 0; text-align: center; }
+.hero-art { width: 100%; }
+
+.calendar { margin-top: clamp(5rem, 13vw, 10rem); }
+.calendar img { width: 100%; }
+
+.venue {
+  display: grid;
+  margin-top: clamp(6rem, 14vw, 11rem);
+  align-items: center;
+}
+.venue > img, .venue-copy { grid-area: 1 / 1; }
+.venue > img { width: 100%; }
+.venue-copy { z-index: 1; width: 48%; padding-left: 8.6%; text-align: center; }
+.venue h2 { font-family: "rollerscript-rough", "Homemade Apple", cursive; font-size: clamp(3rem, 5.6vw, 4.6rem); line-height: 1.1; white-space: nowrap; }
+.venue p { font-size: clamp(1.8rem, 3.1vw, 2.7rem); line-height: 1.5; white-space: nowrap; }
+
+.attendance { margin-top: clamp(4.5rem, 11vw, 8.5rem); text-align: center; }
+.lights { width: 100%; }
+.attendance p {
+  position: relative;
+  margin: -1.5rem auto 0;
+  padding-inline: 1rem;
+  font-family: "rollerscript-rough", "Homemade Apple", cursive;
+  font-size: clamp(1.8rem, 3.5vw, 2.85rem);
+  line-height: 1.44;
+}
+
+.dress-code { margin-top: clamp(5rem, 11vw, 9rem); }
+.dress-code img { width: 100%; }
+
+.gift {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  row-gap: 0;
+  place-items: center;
+  margin-top: clamp(6rem, 14vw, 11rem);
+}
+.gift-line { width: 112%; max-width: none; min-width: 0; grid-column: 1; }
+.gift-line-top { grid-row: 1; transform: translate(-3rem, 2rem); }
+.gift-line-bottom { grid-row: 2; transform: translate(0rem, -1.5rem); }
+.gift-copy {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  z-index: 1;
+  width: 58%;
+  margin-top: 0;
+  text-align: center;
+  font-family: "rollerscript-rough", "Homemade Apple", cursive;
+  font-size: clamp(1.8rem, 3.5vw, 2.85rem);
+  line-height: 1.42;
+}
+.gift-copy > p:first-child { white-space: nowrap; }
+.bank-details { margin-top: .35rem; font-size: .72em; line-height: 1.95; }
+
+.closing { margin-top: clamp(4.5rem, 11vw, 8.5rem); text-align: center; }
+.closing p { font-family: "rollerscript-rough", "Homemade Apple", cursive; font-size: clamp(2.4rem, 4.3vw, 3.6rem); }
+.confirmation-copy { max-width: 950px; margin-inline: auto; padding-inline: 1rem; line-height: 1.35; }
+.confirmation-deadline { margin-top: .4em; }
+.heart-link { display: block; width: 100%; }
+.heart-link img { width: 100%; }
+.heart-link:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -2px; }
+.closing-message { padding-bottom: clamp(3rem, 7vw, 6rem); }
+
+@media (max-width: 760px) {
+  .hero-art { width: 120%; max-width: none; margin-left: -10%; }
+  .calendar { margin-top: 5.5rem; }
+  .venue { margin-top: 5rem; display: flex; flex-direction: column-reverse; overflow: hidden; }
+  .venue > img { width: 130%; max-width: none; align-self: flex-end; margin-right: -20%; }
+  .venue-copy { width: 100%; padding: 0 1rem; }
+  .venue h2 { font-size: clamp(2.8rem, 7.5vw, 4rem); }
+  .venue p { font-size: clamp(1.7rem, 4.6vw, 2.5rem); }
+  .attendance { margin-top: 4rem; }
+  .attendance p { margin-top: .3rem; font-size: clamp(1.5rem, 4.5vw, 2.2rem); }
+  .dress-code { margin-top: 4rem; }
+  .gift { margin-top: 2rem; row-gap: 4rem; overflow: hidden; }
+  .gift-line { width: 135%; max-width: none; }
+  .gift-line-top { transform: none; }
+  .gift-line-bottom { transform: translate(-1.5rem, -4rem); }
+  .gift-copy { width: 74%; margin-top: 0; font-size: clamp(1.5rem, 4.5vw, 2.2rem); }
+  .gift-copy > p:first-child { white-space: normal; }
+  .closing { margin-top: 4rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-art { width: 155%; margin-left: -27.5%; }
+  .calendar { margin-top: 4.5rem; }
+  .calendar img { width: 112%; max-width: none; margin-left: -6%; }
+  .venue { margin-top: 3.5rem; }
+  .venue > img { width: 165%; margin-right: 0; }
+  .venue h2 { font-size: clamp(2.5rem, 10vw, 3.4rem); }
+  .venue p { font-size: clamp(1.45rem, 6vw, 2rem); }
+  .attendance { margin-top: 2.5rem; }
+  .lights { width: 145%; max-width: none; margin-left: -22.5%; }
+  .attendance p { padding-inline: .8rem; font-size: clamp(1.22rem, 5.2vw, 1.65rem); line-height: 1.5; }
+  .attendance p br { display: none; }
+  .dress-code { margin-top: 3.5rem; }
+  .dress-code img { width: 135%; max-width: none; margin-left: -17.5%; }
+  .gift { margin-top: 1rem; row-gap: 2rem; }
+  .gift-line { width: 170%; }
+  .gift-line-top { width: 150%; transform: translate(-1.25rem, 4.5rem); }
+  .gift-copy { width: 82%; margin-top: 0; font-size: clamp(1.22rem, 5.2vw, 1.65rem); line-height: 1.34; }
+  .gift-copy p:first-child br { display: none; }
+  .bank-details { margin-top: .35rem; line-height: 1.6; }
+  .closing { margin-top: 2.5rem; }
+  .closing p { padding-inline: .5rem; font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .heart-link img { width: 135%; max-width: none; margin-left: -17.5%; }
+}
