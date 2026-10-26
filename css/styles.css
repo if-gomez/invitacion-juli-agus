@@ -50,6 +50,7 @@ h2, p { margin: 0; font-weight: 400; }
   font-size: clamp(1.8rem, 3.5vw, 2.85rem);
   line-height: 1.44;
 }
+.attendance .attendance-thanks { margin-top: .25em; }
 
 .dress-code { margin-top: clamp(5rem, 11vw, 9rem); }
 .dress-code img { width: 100%; }
@@ -77,21 +78,45 @@ h2, p { margin: 0; font-weight: 400; }
   line-height: 1.42;
 }
 .gift-copy > p:first-child { white-space: nowrap; }
-.bank-details { margin-top: .35rem; font-size: .72em; line-height: 1.95; }
+.bank-details { margin-top: .35rem; font-size: .85em; line-height: 1.5; }
 
 .closing { margin-top: clamp(4.5rem, 11vw, 8.5rem); text-align: center; }
 .closing p { font-family: "rollerscript-rough", "Homemade Apple", cursive; font-size: clamp(2.4rem, 4.3vw, 3.6rem); }
-.confirmation-copy { max-width: 950px; margin-inline: auto; padding-inline: 1rem; line-height: 1.35; }
+.closing .confirmation-copy { max-width: 950px; margin-inline: auto; padding-inline: 1rem; font-size: clamp(1.8rem, 3.5vw, 2.85rem); line-height: 1.35; }
 .confirmation-deadline { margin-top: .4em; }
 .heart-link { display: block; width: 100%; }
 .heart-link img { width: 100%; }
 .heart-link:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -2px; }
 .closing-message { padding-bottom: clamp(3rem, 7vw, 6rem); }
 
+.music-toggle {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 0;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-background);
+  color: var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgb(0 0 0 / .12);
+}
+.music-toggle:hover { background: #f4e9e3; }
+.music-toggle:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+.music-icon { width: 1.5rem; height: 1.5rem; fill: currentColor; }
+.music-icon-pause { display: none; }
+.music-toggle[aria-pressed="true"] .music-icon-play { display: none; }
+.music-toggle[aria-pressed="true"] .music-icon-pause { display: block; }
+
 @media (max-width: 760px) {
   .hero-art { width: 120%; max-width: none; margin-left: -10%; }
   .calendar { margin-top: 5.5rem; }
-  .venue { margin-top: 5rem; display: flex; flex-direction: column-reverse; overflow: hidden; }
+  .venue { margin-top: 5rem; display: flex; flex-direction: column; overflow: hidden; }
   .venue > img { width: 130%; max-width: none; align-self: flex-end; margin-right: -20%; }
   .venue-copy { width: 100%; padding: 0 1rem; }
   .venue h2 { font-size: clamp(2.8rem, 7.5vw, 4rem); }
@@ -101,22 +126,24 @@ h2, p { margin: 0; font-weight: 400; }
   .dress-code { margin-top: 4rem; }
   .gift { margin-top: 2rem; row-gap: 4rem; overflow: hidden; }
   .gift-line { width: 135%; max-width: none; }
-  .gift-line-top { transform: none; }
+  .gift-line-top { transform: translateY(3rem); }
   .gift-line-bottom { transform: translate(-1.5rem, -4rem); }
   .gift-copy { width: 74%; margin-top: 0; font-size: clamp(1.5rem, 4.5vw, 2.2rem); }
   .gift-copy > p:first-child { white-space: normal; }
   .closing { margin-top: 4rem; }
+  .closing .confirmation-copy { font-size: clamp(1.5rem, 4.5vw, 2.2rem); }
+  .closing-message { padding-bottom: calc(6.5rem + env(safe-area-inset-bottom)); }
 }
 
 @media (max-width: 480px) {
   .hero-art { width: 155%; margin-left: -27.5%; }
   .calendar { margin-top: 4.5rem; }
-  .calendar img { width: 112%; max-width: none; margin-left: -6%; }
+  .calendar img { width: 108%; max-width: none; margin-left: -6%; }
   .venue { margin-top: 3.5rem; }
   .venue > img { width: 165%; margin-right: 0; }
   .venue h2 { font-size: clamp(2.5rem, 10vw, 3.4rem); }
   .venue p { font-size: clamp(1.45rem, 6vw, 2rem); }
-  .attendance { margin-top: 2.5rem; }
+  .attendance { margin-top: 4.5rem; }
   .lights { width: 145%; max-width: none; margin-left: -22.5%; }
   .attendance p { padding-inline: .8rem; font-size: clamp(1.22rem, 5.2vw, 1.65rem); line-height: 1.5; }
   .attendance p br { display: none; }
@@ -130,5 +157,11 @@ h2, p { margin: 0; font-weight: 400; }
   .bank-details { margin-top: .35rem; line-height: 1.6; }
   .closing { margin-top: 2.5rem; }
   .closing p { padding-inline: .5rem; font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .closing .confirmation-copy { font-size: clamp(1.22rem, 5.2vw, 1.65rem); }
   .heart-link img { width: 135%; max-width: none; margin-left: -17.5%; }
+}
+
+@media (max-width: 400px) {
+  .gift-line-top { transform: translate(-1.25rem, 2.5rem); }
+  .gift-line-bottom { transform: translate(-1.5rem, -2rem); }
 }
